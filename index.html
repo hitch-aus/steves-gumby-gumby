@@ -66,8 +66,17 @@
     }
 
     .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 1.1rem;
       letter-spacing: 0.01em;
+    }
+
+    .logo {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
     }
 
     .nav {
@@ -354,7 +363,10 @@
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a class="brand" href="#top">Steve's Gumby Gumby</a>
+      <a class="brand" href="#top">
+        <img src="images/logo.png" alt="Steve's Gumby Gumby logo" class="logo">
+        Steve's Gumby Gumby
+      </a>
       <nav class="nav">
         <a href="#products">Products</a>
         <a href="#approach">Our approach</a>
@@ -497,24 +509,19 @@
     <section class="contact" id="contact">
       <div class="container">
         <div class="contact-brand">Steve's Gumby Gumby</div>
-        <div class="contact-meta">Clermont, Queensland</div>
 
         <div class="contact-links">
           <a href="tel:0400508309">0400 508 309</a>
           <span>|</span>
-          <a href="mailto:gumbyorders@gmail.com">gumbyorders@gmail.com</a>
+          <a href="mailto:info@stevesgumbygumby.com">info@stevesgumbygumby.com</a>
         </div>
 
         <div class="contact-meta" style="margin-top:14px;">
-          ABN 72 404 996 357<br>
-          PO Box 184, Clermont QLD 4721
+          PO Box 184, Clermont QLD 4721<br>
+          ABN 72 404 996 357
         </div>
       </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="container">Small batch harvested and prepared in Clermont, Queensland</div>
-  </footer>
 </body>
 </html>
