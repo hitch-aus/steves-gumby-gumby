@@ -136,11 +136,33 @@
       color: var(--muted);
       font-style: italic;
       font-size: 1.08rem;
+      letter-spacing: 0.01em;
+    }
+
+    .organic {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      font-style: italic;
+    }
+
+    em,
+    .latin {
+      font-style: italic;
+      color: var(--muted);
+      letter-spacing: 0.01em;
     }
 
     .origin {
       margin: 8px 0 0;
       font-size: 1.1rem;
+    }
+
+    .organic {
+      margin: 6px 0 0;
+      font-size: 1rem;
+      color: var(--muted);
+      font-style: italic;
     }
 
     .section {
@@ -202,6 +224,11 @@
 
     .ingredients {
       font-size: 1rem;
+    }
+
+    .ingredients em,
+    .ingredients .latin {
+      color: #5f574f;
     }
 
     .product-image {
@@ -355,9 +382,8 @@
       <div class="container">
         <h1>Steve's Gumby Gumby</h1>
         <p class="subheading">Small batch harvested and prepared in Clermont, Queensland</p>
-        <p class="botanical">Pittosporum angustifolium</p>
         <p class="origin">100% Australian locally produced product</p>
-        <p class="organic">All capsules prepared using certified organic plant material</p>
+        <p class="organic">Our capsules are prepared using certified organic plant material</p>
       </div>
     </section>
 
@@ -370,7 +396,7 @@
               <div class="price">$40</div>
             </div>
             <div class="pack">200 capsule pack</div>
-            <div class="ingredients">Contains 100% Gumby Gumby leaf (<em>Pittosporum angustifolium</em>)</div>
+            <div class="ingredients">Contains 100% Gumby Gumby leaf <span class="latin">(<em>Pittosporum angustifolium</em>)</span></div>
           </div>
           <div class="product-image placeholder">
             <!-- Later:
@@ -386,7 +412,7 @@
               <div class="price">$30</div>
             </div>
             <div class="pack">200 capsule pack</div>
-            <div class="ingredients">Contains 50% Garlic, 50% Olive Leaf</div>
+            <div class="ingredients">Contains 50% Garlic Powder, 50% Olive Leaf Powder</div>
           </div>
           <div class="product-image placeholder">
             <!-- Later:
@@ -402,7 +428,7 @@
               <div class="price">$35</div>
             </div>
             <div class="pack">200 capsule pack</div>
-            <div class="ingredients">Contains 70% Turmeric, 20% Cayenne Pepper, 10% Black Pepper</div>
+            <div class="ingredients">Contains 70% Organic Golden Turmeric, 20% Cayenne Pepper, 10% Black Pepper</div>
           </div>
           <div class="product-image placeholder">
             <!-- Later:
@@ -411,7 +437,7 @@
           </div>
         </article>
 
-                <article class="product-card">
+        <article class="product-card">
           <div class="product-copy">
             <div class="product-top">
               <h3>Moringa</h3>
@@ -422,7 +448,7 @@
           </div>
           <div class="product-image placeholder">
             <!-- Later:
-            <img src="images/arthritis-mix.jpg" alt="Arthritis Mix capsules" />
+            <img src="images/moringa.jpg" alt="Moringa capsules" />
             -->
           </div>
         </article>
