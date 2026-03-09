@@ -92,26 +92,6 @@
       color: var(--text);
     }
 
-    .hero-image-wrap {
-      width: min(100%, 1100px);
-      margin: 0 auto;
-      padding-top: 18px;
-    }
-
-    .hero-image {
-      width: 100%;
-      aspect-ratio: 16 / 6;
-      background: linear-gradient(135deg, #d7d0c6 0%, #ebe5dc 100%);
-      overflow: hidden;
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-placeholder,
     .image-placeholder {
       width: 100%;
       height: 100%;
@@ -123,22 +103,102 @@
       background: linear-gradient(135deg, #d7d0c6 0%, #ebe5dc 100%);
     }
 
-    .hero-copy {
+    .hero-section {
+      position: relative;
+      width: 100%;
+      min-height: 80vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 60px 20px 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
       text-align: center;
-      padding: 30px 0 14px;
+      color: #fff;
+      max-width: 800px;
+      padding-bottom: 20px;
     }
 
-    h1 {
+    .hero-content h1 {
       margin: 0;
-      font-size: clamp(2.1rem, 4vw, 3.35rem);
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
       font-weight: 500;
-      line-height: 1.05;
+      line-height: 1.1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      font-family: inherit;
     }
 
-    .subheading {
-      margin: 14px auto 0;
-      max-width: 42ch;
-      font-size: 1.15rem;
+    .hero-content .subheading {
+      margin: 16px auto 32px;
+      max-width: 48ch;
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      line-height: 1.4;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 34px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .btn-primary {
+      background: #3c6e47; 
+      color: #fff !important;
+      border: 2px solid #3c6e47;
+    }
+
+    .btn-primary:hover {
+      background: #2a5033;
+      border-color: #2a5033;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: #3c6e47 !important;
+      border: 2px solid #fff;
+    }
+
+    .btn-secondary:hover {
+      background: #f4f4f4;
     }
 
     .botanical {
@@ -381,25 +441,30 @@
   </header>
 
   <main id="top">
-    <div class="hero-image-wrap">
-      <img src="images/gumby-leaves-hero.jpg" alt="Gumby Gumby leaves" />
-
-    </div>
-    </div>
-
-    <section class="section hero-copy">
-      <div class="container">
+    <section class="hero-section">
+      <div class="hero-bg">
+        <img src="images/gumby-leaves-hero.jpg" alt="Gumby Gumby leaves" />
+      </div>
+      <div class="hero-content">
         <h1>Steve's Gumby Gumby</h1>
         <p class="subheading">Small batch harvested and prepared in Clermont, Queensland</p>
-        <p class="origin">100% Australian locally produced product</p>
-        <p class="organic">All capsules prepared using certified organic plant material</p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn btn-primary">Our Products</a>
+          <a href="#approach" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero-info">
+      <div class="container">
+        <p class="origin" style="text-align:center; margin-top:20px;">100% Australian locally produced product</p>
+        <p class="organic" style="text-align:center;">All capsules prepared using certified organic plant material</p>
 
         <div
-          style="margin-top:18px;padding:14px 18px;border:1px solid var(--line);background:var(--panel);border-radius:10px;font-size:0.98rem;color:var(--muted);">
+          style="margin-top:24px;padding:16px 20px;border:1px solid var(--line);background:var(--panel);border-radius:12px;font-size:1rem;color:var(--text);text-align:center;box-shadow:var(--shadow);">
           <strong>Ordering:</strong> This website is for information only. Orders are not placed through the website.
           Please contact us directly by phone, text or email to arrange your order.
         </div>
-
       </div>
     </section>
 
@@ -483,24 +548,23 @@
         <div class="gallery-grid">
           <figure class="gallery-card">
             <div class="gallery-media">
+              <img src="images/gumby-tree.jpg" alt="Gumby Gumby tree" />
             </div>
-            <img src="images/gumby-tree.jpg" alt="Gumby Gumby leaves" />
-        </div>
-        </figure>
+          </figure>
 
-        <!-- <figure class="gallery-card">
+          <!-- <figure class="gallery-card">
             <div class="gallery-media">
               <div class="image-placeholder">Gumby tree photo</div>
             </div>
             <figcaption class="gallery-caption">Gumby Gumby tree in Queensland</figcaption>
           </figure> -->
 
-        <figure class="gallery-card">
-          <div class="gallery-media">
-            <img src="images/gumby-leaves.jpg" alt="Gumby Gumby leaves" />
-          </div>
-        </figure>
-      </div>
+          <figure class="gallery-card">
+            <div class="gallery-media">
+              <img src="images/gumby-leaves.jpg" alt="Gumby Gumby leaves" />
+            </div>
+          </figure>
+        </div>
       </div>
     </section>
 
