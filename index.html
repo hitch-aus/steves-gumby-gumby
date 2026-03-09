@@ -11,13 +11,13 @@
     rel="stylesheet">
   <style>
     :root {
-      --bg: #f3eee8;
-      --panel: rgba(255, 255, 255, 0.42);
-      --panel-strong: rgba(255, 255, 255, 0.58);
+      --bg: #faf7f2;
+      --panel: #ffffff;
+      --panel-strong: #ffffff;
       --text: #2f2924;
       --muted: #6f665d;
-      --line: rgba(120, 108, 97, 0.18);
-      --shadow: 0 10px 28px rgba(48, 37, 29, 0.05);
+      --line: rgba(120, 108, 97, 0.12);
+      --shadow: 0 12px 32px rgba(48, 37, 29, 0.04);
       --radius: 16px;
       --max: 980px;
     }
@@ -34,8 +34,8 @@
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       color: var(--text);
-      background: #f4efe9;
-      line-height: 1.45;
+      background: var(--bg);
+      line-height: 1.5;
     }
 
     img {
@@ -176,12 +176,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 14px 34px;
-      border-radius: 30px;
+      padding: 14px 36px;
+      border-radius: 40px;
       font-size: 1.1rem;
       font-weight: 500;
       text-decoration: none;
-      transition: all 0.2s;
+      transition: all 0.25s ease;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
@@ -194,6 +194,8 @@
     .btn-primary:hover {
       background: #2a5033;
       border-color: #2a5033;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(42, 80, 51, 0.2);
     }
 
     .btn-secondary {
@@ -203,45 +205,60 @@
     }
 
     .btn-secondary:hover {
-      background: #f4f4f4;
+      background: #fdfdfd;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
     }
 
-    .botanical {
-      margin: 10px 0 0;
+    .benefits-text {
+      text-align: center;
+      margin-bottom: 32px;
       color: var(--muted);
-      font-style: italic;
-      font-size: 1.08rem;
-      letter-spacing: 0.01em;
     }
 
-    .organic {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 1rem;
+    .benefits-text p {
+      margin: 8px 0;
+      font-size: 1.05rem;
+    }
+
+    .benefits-text .origin {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .benefits-text .organic {
       font-style: italic;
     }
 
-    em,
-    .latin {
-      font-style: italic;
-      color: var(--muted);
-      letter-spacing: 0.01em;
+    .ordering-note {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      font-size: 1.05rem;
+      color: var(--text);
+      text-align: center;
+      box-shadow: var(--shadow);
     }
 
-    .origin {
-      margin: 8px 0 0;
-      font-size: 1.1rem;
+    .ordering-note strong {
+      color: #3c6e47;
+      font-weight: 600;
+      letter-spacing: 0.02em;
     }
 
     .section {
-      padding: 16px 0 14px;
+      padding: 40px 0;
       scroll-margin-top: 80px;
     }
 
     .section-title {
       text-align: center;
-      margin: 0 0 18px;
-      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      margin: 0 0 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 3vw, 2.5rem);
       font-weight: 500;
     }
 
@@ -252,17 +269,22 @@
 
     .product-card {
       display: grid;
-      grid-template-columns: 1.15fr 220px;
+      grid-template-columns: 1.25fr 240px;
       background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: 10px;
+      border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
-      min-height: 118px;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 16px 40px rgba(48, 37, 29, 0.08);
+      transform: translateY(-2px);
     }
 
     .product-copy {
-      padding: 16px 18px;
+      padding: 24px 28px;
     }
 
     .product-top {
@@ -440,7 +462,8 @@
       }
 
       .contact-logo {
-        width: 65px; /* Slightly larger on mobile */
+        width: 65px;
+        /* Slightly larger on mobile */
       }
 
       .product-card {
@@ -516,19 +539,33 @@
         <h1>Steve's Gumby Gumby</h1>
         <p class="subheading">Small batch harvested and prepared in Clermont, Queensland</p>
         <div class="hero-buttons">
-          <a href="#products" class="btn btn-primary">Our Products</a>
-          <a href="#approach" class="btn btn-secondary">Learn More</a>
+          <a href="#approach" class="btn btn-secondary">Our approach</a>
+          <a href="#products" class="btn btn-primary">Products</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="container">
+        <h2 class="section-title">Our Approach</h2>
+        <div class="approach">
+          <p>Our Gumby Gumby is carefully identified and harvested locally in Clermont and processed with minimal
+            intervention to help preserve its natural phytochemicals. The leaves are naturally dried and then
+            cool-milled.</p>
+          <p>These capsules are offered based on personal experience and feedback from people who have used Gumby Gumby.
+            We aim to keep them available at a reasonable price so they remain accessible for all who need them.</p>
+          <p>We encourage everyone to do their own research when considering any supplements.</p>
         </div>
       </div>
     </section>
 
     <section class="section hero-info">
       <div class="container">
-        <p class="origin" style="text-align:center; margin-top:20px;">100% Australian locally produced product</p>
-        <p class="organic" style="text-align:center;">All capsules prepared using certified organic plant material</p>
+        <div class="benefits-text">
+          <p class="origin">100% Australian locally produced product</p>
+        </div>
 
-        <div
-          style="margin-top:24px;padding:16px 20px;border:1px solid var(--line);background:var(--panel);border-radius:12px;font-size:1rem;color:var(--text);text-align:center;box-shadow:var(--shadow);">
+        <div class="ordering-note">
           <strong>Ordering:</strong> This website is for information only. Orders are not placed through the website.
           Please contact us directly by phone, text or email to arrange your order.
         </div>
@@ -593,20 +630,8 @@
             <img src="images/moringa.jpg" alt="Moringa capsules" />
           </div>
         </article>
-      </div>
-    </section>
+        <p class="organic" style="text-align:center;">All capsules prepared using certified organic plant material</p>
 
-    <section class="section" id="approach">
-      <div class="container">
-        <h2 class="section-title">Our Approach</h2>
-        <div class="approach">
-          <p>Our Gumby Gumby is carefully identified and harvested locally in Clermont and processed with minimal
-            intervention to help preserve its natural phytochemicals. The leaves are naturally dried and then
-            cool-milled.</p>
-          <p>These capsules are offered based on personal experience and feedback from people who have used Gumby Gumby.
-            We aim to keep them available at a reasonable price so they remain accessible for all who need them.</p>
-          <p>We encourage everyone to do their own research when considering any supplements.</p>
-        </div>
       </div>
     </section>
 
@@ -645,7 +670,7 @@
 
         <div class="contact-info-wrapper">
           <img src="images/logo.png" alt="Steve's Gumby Gumby Logo" class="contact-logo">
-          
+
           <div class="contact-details">
             <div class="contact-meta">
               PO Box 184, Clermont QLD 4721<br>
