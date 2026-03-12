@@ -317,6 +317,7 @@ a {
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 0.9rem;
+  width: fit-content;
 }
 
 .flip-toggle:hover {
@@ -374,6 +375,7 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
   opacity: 0.95;
 }
 
@@ -521,7 +523,7 @@ h3 {
   }
 
   .flip-card-front {
-    grid-template-columns: 1fr 110px;
+    grid-template-columns: 1fr 130px;
   }
 
   .product-copy {
@@ -562,9 +564,9 @@ h3 {
   }
 
   .flip-toggle {
-    padding: 8px 12px;
     font-size: 0.85rem;
     margin-top: 10px;
+    width: fit-content;
   }
 
   .approach {
@@ -591,7 +593,7 @@ h3 {
 
   .product-image {
     min-height: 100%;
-    height: 100%;
+    height: auto;
   }
 
   .gallery-media {
