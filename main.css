@@ -523,7 +523,7 @@ h3 {
   }
 
   .flip-card-front {
-    grid-template-columns: 1fr 130px;
+    grid-template-columns: 1fr;
   }
 
   .product-copy {
@@ -592,8 +592,8 @@ h3 {
   }
 
   .product-image {
-    min-height: 100%;
-    height: auto;
+    height: 180px;
+    order: -1;
   }
 
   .gallery-media {
