@@ -443,6 +443,82 @@ h3 {
   padding: 12px 0 34px;
 }
 
+.contact-form {
+  max-width: 620px;
+  margin: 24px auto 0;
+  display: grid;
+  gap: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  resize: vertical;
+  box-shadow: var(--shadow);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--muted);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid rgba(60, 110, 71, 0.22);
+  outline-offset: 1px;
+  border-color: rgba(60, 110, 71, 0.35);
+}
+
+.contact-form-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 22px;
+  border: 2px solid #3c6e47;
+  border-radius: 999px;
+  background: #3c6e47;
+  color: #fff;
+  font: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  width: fit-content;
+  margin: 4px auto 0;
+}
+
+.contact-form-button:hover {
+  background: #2a5033;
+  border-color: #2a5033;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(42, 80, 51, 0.18);
+}
+
+.contact-form-button:focus {
+  outline: 2px solid rgba(60, 110, 71, 0.22);
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .contact-form {
+    margin-top: 20px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 13px 14px;
+  }
+
+  .contact-form-button {
+    width: 100%;
+  }
+}
+
 .contact-brand {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.9rem;

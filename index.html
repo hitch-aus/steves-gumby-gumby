@@ -317,38 +317,88 @@
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="contact-brand">Steve's Gumby Gumby</div>
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-brand">Steve's Gumby Gumby</div>
 
-        <div class="contact-meta" style="max-width: 600px; margin: 6px auto 24px; padding: 0 20px; line-height: 1.6;">
-          Orders are not placed through this website. Please contact James or Tash directly by phone, text or email to
-          arrange your order.
-        </div>
+    <div class="contact-meta" style="max-width: 600px; margin: 6px auto 24px; padding: 0 20px; line-height: 1.6;">
+      Orders are not placed through this website. Please contact James or Tash directly by phone, text or email to
+      arrange your order, or send us a message below and we’ll get back to you as soon as we can.
+    </div>
 
-        <div class="contact-links">
-          <a href="tel:0400508309" data-umami-event="Phone Click">0400 508 309</a>
-          <span>|</span>
-          <a href="mailto:gumbyorders@gmail.com" data-umami-event="Email Click">gumbyorders@gmail.com</a>
-        </div>
+    <div class="contact-links">
+      <a href="tel:0400508309" data-umami-event="Phone Click">0400 508 309</a>
+      <span>|</span>
+      <a href="mailto:gumbyorders@gmail.com" data-umami-event="Email Click">gumbyorders@gmail.com</a>
+    </div>
 
-        <div class="contact-info-wrapper">
-          <img src="images/logo.png" alt="Steve's Gumby Gumby Logo" class="contact-logo" loading="lazy">
+<form
+  class="contact-form"
+  action="https://formspree.io/f/mojpvykn"
+  method="POST"
+>
+  <input type="hidden" name="source" value="homepage">
+  <input type="hidden" name="_subject" value="New website enquiry - Steve's Gumby Gumby">
+  <input type="hidden" name="_next" value="https://stevesgumbygumby.com/thanks.html">
 
-          <div class="contact-details">
-            <div class="contact-meta">
-              PO Box 184, Clermont QLD 4721<br>
-              ABN 72 404 996 357
-            </div>
-          </div>
-        </div>
+  <input
+    type="text"
+    name="name"
+    placeholder="Your name"
+    autocomplete="name"
+    required
+    data-umami-event="Contact Form Started"
+  >
 
-        <div class="disclaimer">
-          <p style="margin:0;">Information on this website is general in nature and is provided for general reference only. It is not intended as medical advice. Please seek advice from a qualified health professional before using any supplement.
-          </p>
+  <input
+    type="email"
+    name="email"
+    placeholder="Your email"
+    autocomplete="email"
+    required
+    data-umami-event="Contact Email Field Used"
+  >
+
+  <input
+    type="text"
+    name="phone"
+    placeholder="Phone number (optional)"
+    autocomplete="tel"
+  >
+
+  <textarea
+    name="message"
+    rows="5"
+    placeholder="How can we help?"
+    required
+  ></textarea>
+
+  <button
+    type="submit"
+    class="contact-form-button"
+    data-umami-event="Contact Form Submit"
+  >
+    Send enquiry
+  </button>
+</form>
+
+    <div class="contact-info-wrapper">
+      <img src="images/logo.png" alt="Steve's Gumby Gumby Logo" class="contact-logo" loading="lazy">
+
+      <div class="contact-details">
+        <div class="contact-meta">
+          PO Box 184, Clermont QLD 4721<br>
+          ABN 72 404 996 357
         </div>
       </div>
-    </section>
+    </div>
+
+    <div class="disclaimer">
+      <p style="margin:0;">Information on this website is general in nature and is provided for general reference only. It is not intended as medical advice. Please seek advice from a qualified health professional before using any supplement.
+      </p>
+    </div>
+  </div>
+</section>
   </main>
 
 <script>
