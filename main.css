@@ -519,6 +519,14 @@ h3 {
   }
 }
 
+.product-meta {
+  text-align: center;
+  margin: 18px 0 0;
+  font-size: 0.95rem;
+  color: #5f5a54;
+  letter-spacing: 0.02em;
+}
+
 .contact-brand {
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.9rem;
