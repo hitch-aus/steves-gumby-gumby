@@ -49,14 +49,13 @@
     "name": "Steve's Gumby Gumby"
   },
   "offers": {
-    "@type": "Offer",
-    "url": "https://stevesgumbygumby.com/gumby-gumby.html",
-    "priceCurrency": "AUD",
-    "price": "40.00",
-    "availability": "https://schema.org/InStock"
-    "priceValidUntil": "2026-12-31"
-
-  }
+  "@type": "Offer",
+  "url": "https://stevesgumbygumby.com/gumby-gumby.html",
+  "priceCurrency": "AUD",
+  "price": "40.00",
+  "availability": "https://schema.org/InStock",
+  "priceValidUntil": "2026-12-31"
+}
 }
 </script>
 </head>
@@ -159,14 +158,13 @@
     <div class="contact-brand">Steve's Gumby Gumby</div>
 
     <div class="contact-meta" style="max-width: 600px; margin: 6px auto 24px; padding: 0 20px; line-height: 1.6;">
-      Orders are not placed through this website. Please contact James or Tash directly by phone, text or email to
-      arrange your order, or send us a message below and we’ll get back to you as soon as we can.
-    </div>
+  Orders are not placed through this website. Please contact James or Tash directly by phone, text or email to arrange your order, or send us a message below if you’d like to ask a question or arrange an order.
+</div>
 
     <div class="contact-links">
 <a href="tel:0400508309" data-umami-event="Phone Click">0400 508 309</a>
 <span>|</span>
-<a href="mailto:gumbyorders@gmail.com" data-umami-event="Email Click">gumbyorders@gmail.com</a>
+<a href="mailto:orders@stevesgumbygumby.com" data-umami-event="Email Click">orders@stevesgumbygumby.com</a>
     </div>
 
 <form
@@ -177,6 +175,7 @@
 >
   <input type="hidden" name="source" value="gumby-page">
   <input type="hidden" name="_subject" value="New website enquiry - Steve's Gumby Gumby">
+  <input type="hidden" name="_replyto">
 
   <input
     type="text"
@@ -203,10 +202,35 @@
     autocomplete="tel"
   >
 
+  <select
+    name="enquiry_type"
+    id="enquiry_type"
+    required
+    data-umami-event="Enquiry Type Selected"
+  >
+    <option value="">What are you enquiring about?</option>
+    <option value="Placing an order">Placing an order</option>
+    <option value="Product question">Product question</option>
+    <option value="General enquiry">General enquiry</option>
+  </select>
+
+  <select
+    name="product"
+    id="product"
+    data-umami-event="Product Selected"
+  >
+    <option value="">Product (optional)</option>
+    <option value="Gumby Gumby">Gumby Gumby</option>
+    <option value="Garlic & Olive Leaf">Garlic & Olive Leaf</option>
+    <option value="Turmeric blend">Turmeric blend</option>
+    <option value="Moringa">Moringa</option>
+    <option value="Not sure yet">Not sure yet</option>
+  </select>
+
   <textarea
     name="message"
     rows="5"
-    placeholder="How can we help?"
+    placeholder="Your message"
     required
   ></textarea>
 
@@ -238,6 +262,7 @@
   </div>
 </section>
   </main>
+
   <script>
   async function handleContactSubmit(event) {
     event.preventDefault();
@@ -250,9 +275,13 @@
     submitButton.textContent = 'Sending...';
 
     try {
+      const formData = new FormData(form);
+      // Set reply-to as the user's email
+      formData.set('_replyto', formData.get('email'));
+
       const response = await fetch(form.action, {
         method: 'POST',
-        body: new FormData(form),
+        body: formData,
         headers: {
           'Accept': 'application/json'
         }

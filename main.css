@@ -450,6 +450,18 @@ h3 {
   gap: 12px;
 }
 
+.contact-form select,
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+  width: 100%;
+}
+
+#order-fields {
+  display: grid;
+  gap: 14px;
+}
+
 .contact-form input,
 .contact-form textarea {
   width: 100%;
