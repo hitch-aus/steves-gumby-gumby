@@ -9,17 +9,10 @@
   </url>
 
   <url>
-    <loc>https://stevesgumbygumby.com/gumby-gumby.html</loc>
+    <loc>https://stevesgumbygumby.com/gumby/</loc>
     <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://stevesgumbygumby.com/thanks.html</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
 
 </urlset>

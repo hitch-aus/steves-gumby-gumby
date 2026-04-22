@@ -15,7 +15,7 @@
 <!-- umami tag -->
 <script defer src="https://cloud.umami.is/script.js" data-website-id="03a95c8d-c876-46a6-98cc-812f60736de4"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gumby Gumby Capsules - Steve’s Gumby Gumby Australia</title>
+<title>Gumby Gumby Capsules - Steve's Gumby Gumby Australia</title>
 <meta name="description"
   content="Gumby Gumby capsules made from 100% Gumby Gumby leaf (Pittosporum angustifolium), a native Australian bushfood, prepared in Clermont Queensland." />
 <meta name="author" content="Steve's Gumby Gumby" />
@@ -32,7 +32,7 @@
 <link rel="icon" type="image/png" href="images/logo.webp" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap"
   rel="stylesheet" />
 <link rel="stylesheet" href="main.css" />
 
@@ -131,13 +131,14 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="#top">
         <img src="images/logo.webp" alt="Steve's Gumby Gumby logo" class="logo">
         Steve's Gumby Gumby
       </a>
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary">
         <a href="#approach">Our approach</a>
         <a href="#products">Products</a>
         <a href="#contact">Contact</a>
@@ -146,6 +147,7 @@
   </header>
 
   <main id="top">
+    <div id="main-content"></div>
     <section class="hero-section">
       <div class="hero-bg">
         <img src="images/gumby-leaves-hero.webp" alt="Fresh Gumby Gumby leaves from Clermont, Queensland" />
@@ -155,7 +157,7 @@
         <p class="subheading">Small batch Gumby Gumby capsules harvested and prepared locally in Clermont, Queensland</p>
         <div class="hero-buttons">
           <a href="#approach" class="btn btn-secondary">Our approach</a>
-          <a href="/gumby-gumby.html" class="btn btn-primary">About Gumby Gumby</a>
+          <a href="/gumby/" class="btn btn-primary">About Gumby Gumby</a>
         </div>
       </div>
     </section>
@@ -190,6 +192,7 @@
 
     <section class="section" id="products">
       <div class="container products">
+        <h2 class="section-title">Products</h2>
         <!-- PRODUCT 1: Gumby Gumby -->
         <div class="flip-card" data-flip-card>
           <div class="flip-card-inner">
@@ -305,6 +308,7 @@
 
     <section class="section" id="gallery">
       <div class="container">
+        <h2 class="section-title">From Clermont</h2>
         <div class="gallery-grid">
           <figure class="gallery-card">
             <div class="gallery-media">
@@ -345,7 +349,9 @@
   <input type="hidden" name="_subject" value="New website enquiry - Steve's Gumby Gumby">
   <input type="hidden" name="_replyto">
 
+  <label class="sr-only" for="contact-name">Your name</label>
   <input
+    id="contact-name"
     type="text"
     name="name"
     placeholder="Your name"
@@ -354,7 +360,9 @@
     data-umami-event="Contact Form Started"
   >
 
+  <label class="sr-only" for="contact-email">Your email</label>
   <input
+    id="contact-email"
     type="email"
     name="email"
     placeholder="Your email"
@@ -363,13 +371,16 @@
     data-umami-event="Contact Email Field Used"
   >
 
+  <label class="sr-only" for="contact-phone">Phone number (optional)</label>
   <input
+    id="contact-phone"
     type="text"
     name="phone"
     placeholder="Phone number (optional)"
     autocomplete="tel"
   >
 
+  <label class="sr-only" for="enquiry_type">What are you enquiring about?</label>
   <select
     name="enquiry_type"
     id="enquiry_type"
@@ -382,6 +393,7 @@
     <option value="General enquiry">General enquiry</option>
   </select>
 
+  <label class="sr-only" for="product">Product (optional)</label>
   <select
     name="product"
     id="product"
@@ -395,7 +407,9 @@
     <option value="Not sure yet">Not sure yet</option>
   </select>
 
+  <label class="sr-only" for="contact-message">Your message</label>
   <textarea
+    id="contact-message"
     name="message"
     rows="5"
     placeholder="Your message"
@@ -409,6 +423,7 @@
   >
     Send message
   </button>
+  <p class="form-status" data-form-status role="status" aria-live="polite"></p>
 </form>
 
     <div class="contact-info-wrapper">
@@ -445,20 +460,10 @@
       }
 
       card.style.cursor = 'pointer';
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('role', 'button');
-      card.setAttribute('aria-label', 'Toggle product information');
 
       card.addEventListener('click', function (e) {
         if (e.target.tagName === 'BUTTON') return;
         setFlippedState(!card.classList.contains('is-flipped'));
-      });
-
-      card.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          setFlippedState(!card.classList.contains('is-flipped'));
-        }
       });
 
       buttons.forEach((button) => {
@@ -488,10 +493,13 @@
 
     const form = event.target;
     const submitButton = form.querySelector('.contact-form-button');
+    const status = form.querySelector('[data-form-status]');
     const originalButtonText = submitButton.textContent;
 
     submitButton.disabled = true;
+    submitButton.setAttribute('aria-busy', 'true');
     submitButton.textContent = 'Sending...';
+    status.textContent = '';
 
     try {
       const formData = new FormData(form);
@@ -507,15 +515,20 @@
       });
 
       if (response.ok) {
+        status.textContent = 'Message sent. Redirecting...';
         window.location.href = '/thanks.html';
       } else {
+        status.textContent = 'Something went wrong. Please try again, or contact us by phone or email.';
         alert('Something went wrong. Please try again, or contact us by phone or email.');
         submitButton.disabled = false;
+        submitButton.removeAttribute('aria-busy');
         submitButton.textContent = originalButtonText;
       }
     } catch (error) {
+      status.textContent = 'Something went wrong. Please try again, or contact us by phone or email.';
       alert('Something went wrong. Please try again, or contact us by phone or email.');
       submitButton.disabled = false;
+      submitButton.removeAttribute('aria-busy');
       submitButton.textContent = originalButtonText;
     }
   }
